@@ -1,0 +1,31 @@
+name: CI/CD Pipeline con Logs
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Simular pruebas
+        run: |
+          echo "✅ Ejecutando pruebas simuladas..."
+          echo "Archivos encontrados: index.html, app.js, app.test.js, package.json"
+          echo "Todas las pruebas pasaron correctamente"
+
+  logs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular registro de logs
+        run: |
+          echo "[INFO] La aplicación está funcionando correctamente."
+          echo "[WARNING] Advertencia: uso de memoria alto."
+          echo "[ERROR] Error crítico: base de datos no responde."
+
+  analyze-logs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analizar logs simulados
+        run: |
+          echo "🔎 Buscando errores en los logs..."
+          echo "❌ Se encontraron errores en los logs"
